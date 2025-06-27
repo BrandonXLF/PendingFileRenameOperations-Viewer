@@ -8,7 +8,7 @@
     <UseWPF>true</UseWPF>
     <RootNamespace>PendingFileRenameOperationsViewer</RootNamespace>
     <ApplicationIcon>media\icon.ico</ApplicationIcon>
-    <ApplicationManifest>A:\Projects\PendingFileRenameOperationsViewer\app.manifest</ApplicationManifest>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
 
   <ItemGroup>

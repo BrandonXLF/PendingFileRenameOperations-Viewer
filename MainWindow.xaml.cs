@@ -58,14 +58,32 @@ namespace PendingFileRenameOperationsViewer
 
             if (op == null) return;
 
+            var isFolder = Directory.Exists(op.Source);
+            var delete = op.Dest == string.Empty;
+
             try
             {
-                if (op.Dest != string.Empty)
+                if (isFolder)
                 {
-                    File.Move(op.Source, op.Dest);
-                } else
+                    if (delete)
+                    {
+                        Directory.Delete(op.Source);
+                    }
+                    else
+                    {
+                        Directory.Move(op.Source, op.Dest);
+                    }
+                }
+                else
                 {
-                    File.Delete(op.Source);
+                    if (delete)
+                    {
+                        File.Delete(op.Source);
+                    }
+                    else
+                    {
+                        File.Move(op.Source, op.Dest);
+                    }
                 }
 
                 store.collection.Remove(op);
